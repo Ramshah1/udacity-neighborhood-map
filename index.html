@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Neighborhood Map Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container-fluid" style="height: 100%">
+    <div class="row" style="height: 100%">
+        <div class="col-lg-2">
+            <h2>Search</h2>
+
+            <input id="input" type="search" placeholder="filter" class="form-control"
+                   data-bind="textInput: inputPlace, event: {keyup: filterMarkers}">
+            <hr>
+
+            <br>
+            <ul class="nav nav-sidebar" data-bind="foreach: visiblePlaces">
+                <li class="well" data-bind="text: name, click: $parent.createInfoWindow">
+                </li>
+            </ul>
+        </div>
+        <div class="col-lg-10" id="map-container">
+            <div id="map">If you are seeing this text, there has been an error displaying Google Maps. Please check your
+                internet
+                connection.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Places Data -->
+<script type="text/javascript" src="js/places_data.js"></script>
+<!-- KnockOut Library -->
+<script type="text/javascript" src="js/lib/knockout-3.4.0.js"></script>
+<!-- JQuery Library -->
+<script type="text/javascript" src="js/lib/jquery-1.12.0.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="js/lib/bootstrap.min.js"></script>
+<!-- Application Code -->
+<script type="text/javascript" src='js/app.js'></script>
+<!-- Loading Google Map -->
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAolTqecYu52uJbNOeyRWc1ReGL9yy60q0&callback=initApp"
+        onerror="errorHandler()">
+
+</script></body>
+</html>
